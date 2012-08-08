@@ -1,0 +1,16 @@
+{
+  "this-is-a-test": {
+    "title": "This is a test",
+    "date": "2012-08-07",
+    "summary": "The point of marked was to create a markdown compiler where it was possible to frequently parse huge chunks of markdown without having to worry about caching the compiled output somehow...or blocking for an unnecesarily long time.",
+    "id": "this-is-a-test",
+    "path": "data/posts/this-is-a-test.md"
+  },
+  "state-of-transitions": {
+    "title": "State of Transitions",
+    "date": "2012-08-06",
+    "summary": "CSS, javascript, all kinds of transitions. We're not in Kansas anymore. Unlike the other Markdown MediaWiki extensions, this one behaves exactly like the other tools here",
+    "id": "state-of-transitions",
+    "path": "data/posts/state-of-transitions.md"
+  }
+}

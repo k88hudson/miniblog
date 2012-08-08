@@ -1,0 +1,10 @@
+header#header
+  .wrapper
+    #logo Kate Hudson
+    nav
+      ul
+        li: a(href="/") Home
+        //- li: a(href="/about") Me
+        //- li: a(href="/work") Work
+        li: a(href="/posts").active Posts
+        li: a(href="/post/" + site.latestPost.id ) Latest Post

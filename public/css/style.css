@@ -1,0 +1,374 @@
+/*********************************************************
+* Globals
+*/
+/*********************************************************
+* Mixins
+*/
+/*********************************************************
+* Lighting Effects
+*/
+/*********************************************************
+* Prefixing
+*/
+/*********************************************************
+* Other Useful Functions
+*/
+/*
+* NORMALIZATION
+* A lot of this is from normalize.css and HTML5 Boilerplate, docs for which can be found at h5bp.com/css
+*/
+/*********************************************************
+* HTML5 display
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+/*********************************************************
+* Links
+*/
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+/*********************************************************
+* Typography
+*/
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+dfn {
+  font-style: italic;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #CCC;
+  margin: 1em 0;
+  padding: 0;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: "menlo", monospace, serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+small {
+  font-size: 85%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/*********************************************************
+* Selection
+*/
+::-moz-selection {
+  background: #FFE62C;
+  text-shadow: none;
+}
+::selection {
+  background: #FFE62C;
+  text-shadow: none;
+}
+/*********************************************************
+* Images
+*/
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+/*********************************************************
+* Forms
+*/
+fieldset {
+  border: 1px solid #C0C0C0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* csslint-ignore: (2) */
+
+  cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* csslint-ignore: (1) */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  /* csslint-ignore */
+
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+/*********************************************************
+* Tables
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  vertical-align: top;
+}
+/*********************************************************
+* Main styles
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ff-tisa-web-pro", "Helvetica neue", sans-serif;
+  font-weight: 400;
+  color: #555555;
+  background: #fefefe;
+}
+.wrapper {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+.pinned {
+  padding-top: 40px;
+}
+.pinned header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.pinned #logo {
+  float: none;
+  border-top: 5px solid #f9fc99;
+}
+.pinned #logo,
+.pinned nav > ul {
+  margin: 0;
+  line-height: 30px;
+}
+.pinned #logo > li,
+.pinned nav > ul > li {
+  float: none;
+}
+.pinned #logo > li > a,
+.pinned nav > ul > li > a {
+  color: #555555;
+  padding: 0;
+}
+.pinned #logo > li > a.active,
+.pinned nav > ul > li > a.active {
+  padding-left: 5px;
+  border: none;
+  color: #001220;
+}
+.pinned #logo > li > a.active:before,
+.pinned nav > ul > li > a.active:before {
+  content: "/ ";
+}
+.pinned .post {
+  padding-top: 90px;
+}
+.pinned .content {
+  opacity: 1;
+  line-height: 1.45;
+  font-size: 1.1em;
+}
+/*********************************************************
+* Header
+*/
+header {
+  background: -moz-linear-gradient(top, #f9fc99 0%, #f8fc8f 100%);
+  background: -webkit-linear-gradient(top, #f9fc99 0%, #f8fc8f 100%);
+  background: -o-linear-gradient(top, #f9fc99 0%, #f8fc8f 100%);
+  background: -ms-linear-gradient(top, #f9fc99 0%, #f8fc8f 100%);
+  background: linear-gradient(top, #f9fc99 0%, #f8fc8f 100%);
+  box-shadow: inset 0 -1px 0 #fffffc;
+  border-bottom: 1px solid #f5fa4f;
+  width: 100%;
+  height: 40px;
+}
+#logo,
+nav {
+  color: #565656;
+  height: 40px;
+  line-height: 40px;
+  font-family: "proxima-nova", "Helvetica neue", sans-serif;
+}
+#logo {
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 40px;
+}
+nav > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-left: -20px;
+  *zoom: 1;
+}
+nav > ul:before,
+nav > ul:after {
+  content: "";
+  display: table;
+}
+nav > ul:after {
+  clear: both;
+}
+nav > ul > li {
+  float: left;
+}
+nav > ul > li > a {
+  display: block;
+  position: relative;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #565656;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+nav > ul > li > a:hover {
+  color: #232323;
+}
+nav > ul > li > a.active {
+  background: #fefefe;
+  color: #001220;
+  border: 1px solid #f5fa4f;
+  border-top: none;
+  border-bottom: 2px solid #fefefe;
+}
+/*********************************************************
+* Post
+*/
+.post {
+  padding-top: 45px;
+  -webkit-transition: padding-top 0.2s ease;
+  -moz-transition: padding-top 0.2s ease;
+  -o-transition: padding-top 0.2s ease;
+  -ms-transition: padding-top 0.2s ease;
+  transition: padding-top 0.2s ease;
+}
+.date {
+  font-style: italic;
+  margin: 1em 0;
+}
+.content {
+  opacity: 0.6;
+  line-height: 1.4;
+  max-width: 500px;
+}
+/*********************************************************
+* Markdown styles
+*/
+.post pre {
+  padding: 1em;
+  font: menlo, monospace;
+  font-size: 0.7em;
+  background: #EEE;
+  border-radius: 2px;
+  border: 1px solid #e1e1e1;
+}

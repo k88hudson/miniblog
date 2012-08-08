@@ -1,0 +1,189 @@
+@import "colors";
+@import "mixins";
+@import "normalize";
+
+/*********************************************************
+* Main styles
+*/
+
+@headerHeight: 40px;
+@navLinkSpacing: 20px;
+
+@contentMarginTop: @headerHeight * 1.125;
+@contentMarginTop_reading: @contentMarginTop * 2;
+@leading: 1.4;
+@leading_reading: 1.45;
+
+@baseColor: #FEFEFE;
+@headerColor: #F9FC99;
+@headerOutline: darken( @headerColor, 15% );
+@accentColor: #001220;
+
+@textColor: #555;
+@navLinkColor: #565656;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ff-tisa-web-pro", "Helvetica neue", sans-serif;
+  font-weight: 400;
+  color: @textColor;
+  background: @baseColor;
+}
+
+.wrapper {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.pinned {
+  padding-top: @headerHeight;
+
+  header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  #logo {
+    float: none;
+    border-top: 5px solid @headerColor;
+  }
+
+  #logo,
+  nav > ul {
+    margin: 0;
+    line-height: 30px;
+    > li {
+      float: none;
+      > a {
+        color: @textColor;
+        padding: 0;
+        &.active {
+          padding-left: 5px;
+          border: none;
+          color: @accentColor;
+          &:before {
+            content: "/ ";
+          }
+        }
+      }
+    }
+  }
+
+  .post {
+    padding-top: @contentMarginTop_reading;
+  }
+  .content {
+    opacity: 1;
+    line-height: @leading_reading;
+    font-size: 1.1em;
+  }
+
+}
+
+/*********************************************************
+* Header
+*/
+
+header {
+  .gradient( "vertical", @headerColor, darken( @headerColor, 2% ) );
+  box-shadow: inset 0 -1px 0 lighten( @headerColor, 20% );
+  border-bottom: 1px solid @headerOutline;
+  width: 100%;
+  height: @headerHeight;
+  // text-shadow: 0 1px fade( #000, 60% );
+}
+
+#logo,
+nav {
+  color: @navLinkColor;
+  height: @headerHeight;
+  line-height: @headerHeight;
+  font-family: "proxima-nova", "Helvetica neue", sans-serif;
+}
+
+#logo {
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 40px;
+}
+
+nav > ul {
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-left: -@navLinkSpacing;
+  .clearfix();
+
+  > li {
+    float: left;
+
+    > a {
+      display: block;
+      position: relative;
+      padding: 0 @navLinkSpacing;
+      text-decoration: none;
+      color: @navLinkColor;
+      .box-sizing( border-box );
+      &:hover {
+        color: darken( @navLinkColor, 20% );
+      }
+      &.active {
+        background: @baseColor;
+        color: @accentColor;
+        border: 1px solid @headerOutline;
+        border-top: none;
+        border-bottom: 2px solid @baseColor;
+      }
+    }
+
+  }
+
+}
+
+/*********************************************************
+* Post
+*/
+
+.post {
+  padding-top: @contentMarginTop;
+  .transition( padding-top .2s ease );
+}
+
+.date {
+  font-style: italic;
+  margin: 1em 0;
+}
+.content {
+  opacity: 0.6;
+  line-height: @leading;
+  max-width: 500px;
+}
+
+/*********************************************************
+* Markdown styles
+*/
+
+.post {
+  pre {
+    padding: 1em;
+    font: menlo, monospace;
+    font-size: 0.7em;
+    background: #EEE;
+    border-radius: 2px;
+    border: 1px solid darken( #EEE, 5% );
+  }
+}
+
