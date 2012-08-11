@@ -77,23 +77,22 @@ app.get( "/", function( req, res ) {
 // List posts
 app.get( "/posts", function( req, res ) {
   var allPosts = [];
-  sortedPosts.forEach( function( i ) {
-    var id = sortedPosts[ i ],
-        _postData;
+
+  sortedPosts.forEach( function( id, index ) {
+    var _postData;
     
-    if( !id ) {
-      return;
+    if ( id ) {
+      _postData = postsData[ id ];
+      _postData.id = id;
+      allPosts[ index ] = _postData;
     }
-    
-    _postData = postsData[ id ];
-    _postData.id = id;
 
   });
 
   res.render( "posts", {
     path: "..",
     site: siteData,
-    posts: postsData,
+    posts: allPosts,
     content: ""
   });
 });
