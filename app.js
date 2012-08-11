@@ -86,7 +86,6 @@ app.get( "/posts", function( req, res ) {
     }
     
     _postData = postsData[ id ];
-    console.log( "DASDAS", _postData );
     _postData.id = id;
 
   });
