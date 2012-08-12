@@ -222,6 +222,7 @@ body {
 .wrapper {
   position: relative;
   width: 960px;
+  padding-left: 50px;
   margin: 0 auto;
 }
 .pinned {
@@ -351,6 +352,11 @@ nav > ul > li > a.active {
   -o-transition: padding-top 0.2s ease;
   -ms-transition: padding-top 0.2s ease;
   transition: padding-top 0.2s ease;
+  padding-right: 300px;
+}
+h1 > a {
+  color: inherit;
+  text-decoration: none;
 }
 .date {
   font-style: italic;
@@ -359,7 +365,6 @@ nav > ul > li > a.active {
 .content {
   opacity: 0.6;
   line-height: 1.4;
-  max-width: 500px;
 }
 /*********************************************************
 * Markdown styles

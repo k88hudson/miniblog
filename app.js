@@ -69,6 +69,7 @@ siteData.latestPost = postsData[ sortedPosts[ 0 ] ];
 // Home
 app.get( "/", function( req, res ) {
   res.render( "home", {
+    view: "home",
     path: "",
     site: siteData
   });
@@ -90,6 +91,7 @@ app.get( "/posts", function( req, res ) {
   });
 
   res.render( "posts", {
+    view: "posts",
     path: "..",
     site: siteData,
     posts: allPosts,
@@ -116,6 +118,7 @@ app.get( "/post/:id", function( req, res ) {
 
   if ( postData ) {
     res.render( "post", {
+      view: "post",
       path: "../..",
       site: siteData,
       post: postData,

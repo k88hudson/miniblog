@@ -1,10 +1,21 @@
 Title: State of Transitions
-Date: 2012-08-06
+Date: 2012-08-11
 Summary: CSS, javascript, all kinds of transitions. We're not in Kansas anymore. Unlike the other Markdown MediaWiki extensions, this one behaves exactly like the other tools here: all the syntax works. The downside is that MediaWiki will not parse the document so it will not count links to other pages or generate a "Table of Contents" for you.
 
 !!! CONTENT
-## So many choices
-No longer are the days of single-serve, limited css transitions. Let's see some examples.
+## Make it simple
+Javacript is all the rage
+<style>
+ .myDiv {
+    color: red;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+  }
+</style>
+<div class="myDiv">Hello world</div>
+
 
 ### Javascript
 ```javascript
