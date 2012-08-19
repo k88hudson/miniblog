@@ -103,15 +103,18 @@ app.get( "/posts", function( req, res ) {
 app.get( "/post/:id", function( req, res ) {
   var id = req.route.params.id,
       postData = postsData[ id ],
-      postContent;
+      postTotal,
+      postContent,
+      postScripts;
 
   if( !postData ) {
     res.send( "Sorry, there was no post by the name." );
   }
 
   // Read the file
-  postContent = fs.readFileSync( postData.path, "utf-8" )
-    .split("!!! CONTENT")[ 1 ];
+  postTotal = fs.readFileSync( postData.path, "utf-8" );
+  postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ];
+  postScripts = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 1 ];
 
   //Convert postContent to html
   postContent = marked( postContent );
@@ -122,7 +125,8 @@ app.get( "/post/:id", function( req, res ) {
       path: "../..",
       site: siteData,
       post: postData,
-      content: postContent
+      content: postContent,
+      scripts: postScripts
     });
   } else {
     res.send( "Oops, no post by that name." );

@@ -26,7 +26,7 @@ document.addEventListener( "DOMContentLoaded", function(){
       oldActive[ i ].classList.remove( "active" );
     }
 
-    activeEl.classList.add( "active" );
+    activeEl && activeEl.classList.add( "active" );
 
   }
 

@@ -183,13 +183,51 @@ h1 > a {
 */
 
 .post {
-  pre {
-    padding: 1em;
+
+  // Code
+  code, pre {
     font: menlo, monospace;
     font-size: 0.7em;
     background: #EEE;
     border-radius: 2px;
     border: 1px solid darken( #EEE, 5% );
   }
+  code {
+    position: relative;
+    top: -1px;
+    padding: 3px 5px;
+    margin: 0 2px;
+    white-space: nowrap;
+  }
+  pre {
+    padding: 1em;
+    >code {
+      white-space: pre-wrap;
+      position: static;
+      padding: 0;
+      margin: 0;
+      font-size: 1em;
+      background: none;
+      border-radius: 0;
+      border: none;
+    }
+  }
+
+  table.halfs {
+    background: #EEE;
+    border-radius: 2px;
+    border: 1px solid darken( #EEE, 5% );
+    td {
+      width: 50%;
+      border: 1px solid darken( #EEE, 5% );
+      > pre {
+        border: none;
+        background: none;
+        border-radius: 0;
+        margin: 0;
+      }
+    }
+  }
+
 }
 

@@ -369,11 +369,46 @@ h1 > a {
 /*********************************************************
 * Markdown styles
 */
+.post code,
 .post pre {
-  padding: 1em;
   font: menlo, monospace;
   font-size: 0.7em;
   background: #EEE;
   border-radius: 2px;
   border: 1px solid #e1e1e1;
+}
+.post code {
+  position: relative;
+  top: -1px;
+  padding: 3px 5px;
+  margin: 0 2px;
+  white-space: nowrap;
+}
+.post pre {
+  padding: 1em;
+}
+.post pre > code {
+  white-space: pre-wrap;
+  position: static;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  background: none;
+  border-radius: 0;
+  border: none;
+}
+.post table.halfs {
+  background: #EEE;
+  border-radius: 2px;
+  border: 1px solid #e1e1e1;
+}
+.post table.halfs td {
+  width: 50%;
+  border: 1px solid #e1e1e1;
+}
+.post table.halfs td > pre {
+  border: none;
+  background: none;
+  border-radius: 0;
+  margin: 0;
 }
