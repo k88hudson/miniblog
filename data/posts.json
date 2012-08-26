@@ -7,17 +7,24 @@
     "path": "data/posts/this-is-a-test.md"
   },
   "state-of-transitions": {
-    "title": "State of Transitions",
+    "title": "Transitions in Transition",
     "date": "2012-08-11",
-    "summary": "CSS, javascript, all kinds of transitions. We're not in Kansas anymore. Unlike the other Markdown MediaWiki extensions, this one behaves exactly like the other tools here",
+    "summary": "Transitions",
     "id": "state-of-transitions",
     "path": "data/posts/state-of-transitions.md"
   },
   "pippins-post": {
-    "title": "Pippin's post",
+    "title": "This is a post",
     "date": "2012-08-08",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
     "id": "pippins-post",
     "path": "data/posts/pippins-post.md"
+  },
+  "line-height": {
+    "title": "Line Height and stuff",
+    "date": "2012-08-11",
+    "summary": "Stuff about line height and sub pixel rendering",
+    "id": "line-height",
+    "path": "data/posts/line-height.md"
   }
 }

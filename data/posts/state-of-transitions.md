@@ -1,23 +1,24 @@
-Title: State of Transitions
+Title: Transitions in Transition
 Date: 2012-08-11
-Summary: CSS, javascript, all kinds of transitions. We're not in Kansas anymore. Unlike the other Markdown MediaWiki extensions, this one behaves exactly like the other tools here: all the syntax works. The downside is that MediaWiki will not parse the document so it will not count links to other pages or generate a "Table of Contents" for you.
+Summary: Transitions
 
 !!! CONTENT
-## Make it simple
 
 ### Display
 Many of our early popcorn plugins hide and show elements by changing the the `display` property of the container element to `none` v.s. `inline`/`block` in javascript. 
 
 This works well to hide the element from pointer events, but unfortunately, `display` is not one of the [properties supported by CSS3 transitions](http://www.w3.org/TR/css3-transitions/#animatable-properties).
 
-<div class="mini-video-container">
-  <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-  <div class="play-button"></div>
-  <div id="test0-eg" class="event fade">Hello world</div>
+<div class="specimen">
+  <div class="container">
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+    <div class="play-button"></div>
+    <div id="test0-eg" class="event fade">Hello world</div>
+  </div>
 </div>
 <button id="test0">Try me</button>
 
@@ -52,15 +53,16 @@ By state change, all I mean is adding and removing classes.
   }
 ````
 
-
-<div class="mini-video-container">
-  <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-  <div class="play-button"></div>
-  <div id="test1-eg" class="event fade">Hello world</div>
+<div class="specimen">
+  <div class="container">
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+    <div class="play-button"></div>
+    <div id="test1-eg" class="event fade">Hello world</div>
+  </div>
 </div>
 <button id="test1">Try me</button>
 
@@ -74,31 +76,37 @@ By state change, all I mean is adding and removing classes.
   }
 ````
 
-<div class="mini-video-container">
-  <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-  <div id="test3-eg" class="event event-alt fade">Hello world</div>
+<div class="specimen">
+  <div class="container">
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+    <div id="test3-eg" class="event event-alt fade">Hello world</div>
+  </div>
 </div>
 <button id="test3">Try me</button>
-<div class="mini-video-container">
-  <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-  <div id="test4-eg" class="event event-alt slide">Hello world</div>
+<div class="specimen">
+  <div class="container">
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+    <div id="test4-eg" class="event event-alt slide">Hello world</div>
+  </div>
 </div>
 <button id="test4">Try me</button>
-<div class="mini-video-container">
-  <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-  <div id="test5-eg" class="event event-alt bounce">Hello world</div>
+<div class="specimen">
+  <div class="container">
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+    <div id="test5-eg" class="event event-alt bounce">Hello world</div>
+  </div>
 </div>
 <button id="test5">Try me</button>
 
@@ -151,16 +159,15 @@ This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transiti
 
 !!! SCRIPTS
 <style>
-  .mini-video-container {
+  .container {
     position: relative;
     width: 420px;
-    height: 215px;
+    height: 200px;
     overflow: hidden;
   }
   .mini-video {
-    width: 100%;
-    height: 100%;
-    background: #999;
+    background: #EEE;
+    padding: 20px;
   }
   .play-button {
     width: 80px;
@@ -176,16 +183,13 @@ This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transiti
     border-radius: 40px;
     cursor: pointer;
   }
-  .play-button.red {
-    background: red;
-  }
   .event {
     position: absolute;
     top: 30px;
     left: 40px;
     height: 100px;
     width: 300px;
-    background: red;
+    background: blue;
   }
 
    /* TEST 1 */
@@ -227,40 +231,6 @@ This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transiti
     display: none;
   }
 
-/*
-
-  .fade {
-    opacity: 1;
-    visibility: visible;
-  }
-  .fade.off,
-  .fade.off-alt {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: opacity 1s ease, visibility 0 ease 1s;
-    -moz-transition: opacity 1s ease, visibility 0 ease 1s;
-    -o-transition: opacity 1s ease, visibility 0 ease 1s;
-    transition: opacity 1s ease, visibility 0 ease 1s;
-  }
-  .fade.off._delay {
-    visibility: visible;
-  }
-
-  .slide {
-    -webkit-transition: left 1s ease, visibility 0 0;
-    -moz-transition: left 1s ease, visibility 0 0;
-    -o-transition: left 1s ease, visibility 0 0;
-    transition: left 1s ease, visibility 0 0;
-  }
-  .slide.off-alt {
-    left: -300px;
-    visibility: hidden;
-    -webkit-transition: left 1s ease, visibility 0 ease 1s;
-    -moz-transition: left 1s ease, visibility 0 ease 1s;
-    -o-transition: left 1s ease, visibility 0 ease 1s;
-    transition: left 1s ease, visibility 0 ease 1s;
-  }
-*/
 </style>
 <script>
 

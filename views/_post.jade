@@ -1,7 +1,8 @@
 .post
-  h1: a(href="/post/" + post.id)= post.title
-  .date= "Composed on " + post.date + " by k88hudson."
-  .summary= post.summary
+  .meta
+    h1: a(href="/post/" + post.id)= post.title
+    .date= "Composed on " + post.date + " by k88hudson."
+    .summary= post.summary
   if content
     .content!= content
     .scripts!= scripts
