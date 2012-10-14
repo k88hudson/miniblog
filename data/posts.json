@@ -9,14 +9,14 @@
   "state-of-transitions": {
     "title": "Transitions in Transition",
     "date": "2012-08-11",
-    "summary": "Transitions",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     "id": "state-of-transitions",
     "path": "data/posts/state-of-transitions.md"
   },
   "pippins-post": {
-    "title": "This is a post",
-    "date": "2012-08-08",
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+    "title": "Testing figure styles",
+    "date": "2012-10-13",
+    "summary": "Last weekend the Popcorn team conducted a user testing session at the Toronto office to uncover problem areas in our interface and gage user reactions. We learned a lot.",
     "id": "pippins-post",
     "path": "data/posts/pippins-post.md"
   },
@@ -26,5 +26,19 @@
     "summary": "Stuff about line height and sub pixel rendering",
     "id": "line-height",
     "path": "data/posts/line-height.md"
+  },
+  "user-testing-popcorn": {
+    "title": "User testing Popcorn Maker",
+    "date": "2012-09-04",
+    "summary": "Last weekend the Popcorn team conducted a user testing session at the Toronto office to uncover problem areas in our interface and gage user reactions. We learned a lot.",
+    "id": "user-testing-popcorn",
+    "path": "data/posts/user-testing-popcorn.md"
+  },
+  "testing-figures": {
+    "title": "Testing figure styles",
+    "date": "2012-10-13",
+    "summary": "Last weekend the Popcorn team conducted a user testing session at the Toronto office to uncover problem areas in our interface and gage user reactions. We learned a lot.",
+    "id": "testing-figures",
+    "path": "data/posts/testing-figures.md"
   }
 }

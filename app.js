@@ -81,7 +81,7 @@ app.get( "/posts", function( req, res ) {
 
   sortedPosts.forEach( function( id, index ) {
     var _postData;
-    
+
     if ( id ) {
       _postData = postsData[ id ];
       _postData.id = id;
@@ -105,6 +105,7 @@ app.get( "/post/:id", function( req, res ) {
       postData = postsData[ id ],
       postTotal,
       postContent,
+      postMarked,
       postScripts;
 
   if( !postData ) {
@@ -114,10 +115,15 @@ app.get( "/post/:id", function( req, res ) {
   // Read the file
   postTotal = fs.readFileSync( postData.path, "utf-8" );
   postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ];
+  postMarked = postContent.match( /<mark>[\s\S]*?<\/mark>/gm );
   postScripts = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 1 ];
 
   //Convert postContent to html
-  postContent = marked( postContent );
+  if ( postMarked ) {
+    for ( var i=0, item; item = postMarked[ i ]; i++ ) {
+      postContent = postContent.replace( item, marked( item.slice( 6, -7 ) ) );
+    }
+  }
 
   if ( postData ) {
     res.render( "post", {

@@ -1,7 +1,30 @@
 !!! 5
 html
   include head
-  body(class= "view-" + view)
+  body(class= "view-" + view + ", grid-on")
     include navigation
     .wrapper
+      .grid-overlay
+        .grid-row
+          .grid-9
+        - for (var n=0; n<6; n++) {
+          .grid-row
+            .grid-3
+            .grid-3
+            .grid-3
+          .grid-row
+            .grid-3
+            .grid-6
+        - }
+
+        - for (var i=0; i<120; i++) {
+          .grid-line(style= "top: " + i * 24 + "px")
+        - }
       block content
+    script
+      var switchDiv = document.createElement( "div" );
+      switchDiv.className=  "switch";
+      switchDiv.addEventListener( "click", function( e ) {
+        document.body.classList.toggle( "grid-on" );
+      }, false);
+      document.body.appendChild( switchDiv );

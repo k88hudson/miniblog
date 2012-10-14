@@ -1,5 +1,5 @@
 document.addEventListener( "DOMContentLoaded", function(){
-  
+
   var HEADER_HEIGHT = 40,
       view = document.body.className.replace( "view-", "" );
 
@@ -21,17 +21,19 @@ document.addEventListener( "DOMContentLoaded", function(){
         oldActive = header.querySelectorAll( ".active" ),
         activeEl = header.querySelector( "." + view ),
         i;
-    
+
     for ( i = 0; i < oldActive.length; i++ ) {
       oldActive[ i ].classList.remove( "active" );
     }
 
-    activeEl && activeEl.classList.add( "active" );
+    if( activeEl ) {
+      activeEl.classList.add( "active" );
+    }
 
   }
 
   activeNavigation();
-  
+
 
 
 }, false);

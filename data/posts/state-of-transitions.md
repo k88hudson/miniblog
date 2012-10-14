@@ -1,6 +1,6 @@
 Title: Transitions in Transition
 Date: 2012-08-11
-Summary: Transitions
+Summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
 
 !!! CONTENT
 
@@ -10,6 +10,7 @@ Many of our early popcorn plugins hide and show elements by changing the the `di
 This works well to hide the element from pointer events, but unfortunately, `display` is not one of the [properties supported by CSS3 transitions](http://www.w3.org/TR/css3-transitions/#animatable-properties).
 
 <div class="specimen">
+  <h4>Figure 1. Hello world</h4>
   <div class="container">
     <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -19,8 +20,8 @@ This works well to hide the element from pointer events, but unfortunately, `dis
     <div class="play-button"></div>
     <div id="test0-eg" class="event fade">Hello world</div>
   </div>
+  <p><button id="test0">Try me</button></p>
 </div>
-<button id="test0">Try me</button>
 
 ```javascript
 // Off
@@ -48,23 +49,24 @@ By state change, all I mean is adding and removing classes.
     opacity: 1;
     transition: opacity 1s linear;
   }
+  
   .fade.off {
     opacity: 0;
   }
-````
+```
 
 <div class="specimen">
+  <h4>Figure 2. Hello world</h4>
   <div class="container">
-    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
     <div class="play-button"></div>
     <div id="test1-eg" class="event fade">Hello world</div>
   </div>
+  <p><button id="test1">Try me</button></p>
 </div>
-<button id="test1">Try me</button>
 
 ```css
  .fade {
@@ -74,65 +76,29 @@ By state change, all I mean is adding and removing classes.
   .fade.off {
     opacity: 0;
   }
-````
+```
 
-<div class="specimen">
-  <div class="container">
-    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-    <div id="test3-eg" class="event event-alt fade">Hello world</div>
+<div class="grid-box">
+  <div class="grid-row">
+    <div class="grid-3">
+      Javascript
+  <pre>
+$( ".myDiv" ).fadeIn();
+  </pre>
+    </div>
+    <div class="grid-3">
+      CSS
+  <pre>
+.myDiv {
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+  </pre>
+    </div>
   </div>
 </div>
-<button id="test3">Try me</button>
-<div class="specimen">
-  <div class="container">
-    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-    <div id="test4-eg" class="event event-alt slide">Hello world</div>
-  </div>
-</div>
-<button id="test4">Try me</button>
-<div class="specimen">
-  <div class="container">
-    <div class="mini-video">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in repreheur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
-    <div id="test5-eg" class="event event-alt bounce">Hello world</div>
-  </div>
-</div>
-<button id="test5">Try me</button>
-
-<table class="halfs">
-  <tr>
-    <td>Javascript</td>
-    <td>CSS</td>
-  </tr>
-  <tr>
-    <td>
-<pre>
-  $( ".myDiv" ).fadeIn();
-</pre>
-    </td>
-    <td>
-<pre>
-  .myDiv {
-    -webkit-transition: opacity 0.2s ease;
-    -moz-transition: opacity 0.2s ease;
-    -o-transition: opacity 0.2s ease;
-    transition: opacity 0.2s ease;
-  }
-</pre>
-    </td>
-  </tr>
-</table>
 
 This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transitions-20091201/#animatable-properties-).
 
@@ -161,13 +127,13 @@ This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transiti
 <style>
   .container {
     position: relative;
-    width: 420px;
     height: 200px;
     overflow: hidden;
   }
   .mini-video {
     background: #EEE;
     padding: 20px;
+    line-height: 1.1;
   }
   .play-button {
     width: 80px;
@@ -188,8 +154,9 @@ This works with [the following items](http://www.w3.org/TR/2009/WD-css3-transiti
     top: 30px;
     left: 40px;
     height: 100px;
-    width: 300px;
-    background: blue;
+    width: 185px;
+    color: #FFF;
+    background: rgba( 71, 162, 218, 0.9 );
   }
 
    /* TEST 1 */
