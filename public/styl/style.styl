@@ -132,7 +132,6 @@ button {
 
 .post {
   font-family: serif;
-  counter-reset: figures;
   margin-bottom: leading * 2;
   #home & {
     float: left;
@@ -240,19 +239,12 @@ button {
   }
 
   article {
-    counter-increment: figures;
-    //clearfix();
-    &.no-numbers {
-      blockquote > p:after {
-        display: none;
-      }
-    }
-    blockquote {
+    counter-reset: figures;
+    > blockquote {
       margin: 0;
       padding: 0;
-      float: left;
-      width: grid( 6 ) + leading;
-      counter-reset: sub-figure;
+     // width: grid( 6 ) + leading;
+      counter-reset: figures;
       img {
         position: relative;
         max-width: grid( 6 );
@@ -281,28 +273,56 @@ button {
         color: #888;
         text-align: center;
       }
-    }
-    aside {
-      h4:before {
-        content: "Figure " counter( figures ) ". ";
-      }
-      ol {
-        counter-reset: sub-annotation;
-        li {
-          counter-increment: sub-annotation
-          list-style-type: none;
-          position: relative;
-          &:before {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 100%;
-            margin-right: 1em;
-            text-align: right;
-            content: counter( figures ) "." counter( sub-annotation );
+      > blockquote {
+        counter-increment: figures;
+        counter-reset: sub-figure;
+        text-align: left;
+        border-top: 1px solid darken( #EEE, 10% );
+        color: lighten( grey, 20% );
+        font-size: 14px;
+        font-family: serif-alt;
+        float: right;
+        width: grid( 3 );
+        margin-bottom: leading;
+        ol,
+        ul {
+          padding: 0;
+          li {
+            margin-bottom: leading;
           }
         }
+        pre {
+          margin: 0;
+          padding: ( leading / 1.5 );
+          code {
+            line-height: ( leading / 1.5 );
+          }
+        }
+        h4:before {
+          content: "Figure " counter( figures ) ". ";
+        }
+        ol {
+          counter-reset: sub-annotation;
+          li {
+            counter-increment: sub-annotation
+            list-style-type: none;
+            position: relative;
+            &:before {
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 100%;
+              margin-right: 1em;
+              text-align: right;
+              content: counter( figures ) "." counter( sub-annotation );
+            }
+          }
+        }
+
       }
+    }
+    aside {
+     
     }
   }
 

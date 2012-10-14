@@ -7,12 +7,22 @@ Summary: This week I took a look at different login systems and the language ( v
 <article>
 <mark>
 >[![Twitter Login](http://dl.dropbox.com/u/29163874/Screenshots/66.png)](http://twitter.com)
+>>#### Login
+>>1. [Twitter](http://www.twitter.com) makes it super simple to 
+>>2. This is from  the verge.
+
 >[![Join Twitter Screen](http://dl.dropbox.com/u/29163874/Screenshots/6f.png)](http://dl.dropbox.com/u/29163874/Screenshots/6f.png)
 >[![Verge Login](http://dl.dropbox.com/u/29163874/Screenshots/65.png)](http://theverge.com)
+>>#### Test
+>>1. [Twitter](http://www.twitter.com) makes it super simple to 
+>>2. This is from  the verge.
 
 >[![IFTTT join](http://dl.dropbox.com/u/29163874/Screenshots/6p.png)](http://dl.dropbox.com/u/29163874/Screenshots/6p.png)
 >[![IFTTT top bar](http://dl.dropbox.com/u/29163874/Screenshots/6q.png)](http://dl.dropbox.com/u/29163874/Screenshots/6q.png)
 >[![IFTT join page](http://dl.dropbox.com/u/29163874/Screenshots/6r.png)](http://dl.dropbox.com/u/29163874/Screenshots/6r.png)
+>>#### Other test
+>>1. [Twitter](http://www.twitter.com) makes it super simple to 
+>>2. This is from  the verge.
 
 >[![Twitter Get started](http://dl.dropbox.com/u/29163874/Screenshots/6i.png)](http://dl.dropbox.com/u/29163874/Screenshots/6h.png)
 >[![Twitter Get started by following 5 people](http://dl.dropbox.com/u/29163874/Screenshots/6k.png)](http://dl.dropbox.com/u/29163874/Screenshots/6j.png)
@@ -21,17 +31,8 @@ Summary: This week I took a look at different login systems and the language ( v
 
 >[![IFTT get started](http://dl.dropbox.com/u/29163874/Screenshots/6s.png)](http://dl.dropbox.com/u/29163874/Screenshots/6s.png)
 </mark>
-<aside>
-<mark>
-#### Login
-
-1. [Twitter](http://www.twitter.com) makes it super simple to 
-2. This is from  the verge.
-</mark>
-</aside>
 </article>
 
-<article>
 <mark>
 >[![img](http://dl.dropbox.com/u/29163874/Screenshots/67.png)](http://www.barackobama.com/splash/choice)
 

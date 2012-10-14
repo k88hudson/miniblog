@@ -296,7 +296,6 @@ button:hover {
 }
 .post {
   font-family: ff-tisa-web-pro, Georgia;
-  counter-reset: figures;
   margin-bottom: 48px;
 }
 #home .post {
@@ -423,19 +422,14 @@ button:hover {
   line-height: 16px;
 }
 .post article {
-  counter-increment: figures;
+  counter-reset: figures;
 }
-.post article.no-numbers blockquote > p:after {
-  display: none;
-}
-.post article blockquote {
+.post article > blockquote {
   margin: 0;
   padding: 0;
-  float: left;
-  width: 574px;
-  counter-reset: sub-figure;
+  counter-reset: figures;
 }
-.post article blockquote img {
+.post article > blockquote img {
   position: relative;
   max-width: 550px;
   margin-right: 24px;
@@ -447,13 +441,13 @@ button:hover {
   box-shadow: 0 4px 5px -4px #ccc;
   margin-bottom: 24px;
 }
-.post article blockquote > p {
+.post article > blockquote > p {
   margin: 0;
   display: block;
   position: relative;
   float: left;
 }
-.post article blockquote > p:after {
+.post article > blockquote > p:after {
   counter-increment: sub-figure;
   content: counter(figures) "." counter(sub-figure);
   display: block;
@@ -466,18 +460,45 @@ button:hover {
   color: #888;
   text-align: center;
 }
-.post article aside h4:before {
+.post article > blockquote > blockquote {
+  counter-increment: figures;
+  counter-reset: sub-figure;
+  text-align: left;
+  border-top: 1px solid #d6d6d6;
+  color: #777;
+  font-size: 14px;
+  font-family: ratio, ff-tisa-web-pro, Georgia;
+  float: right;
+  width: 265px;
+  margin-bottom: 24px;
+}
+.post article > blockquote > blockquote ol,
+.post article > blockquote > blockquote ul {
+  padding: 0;
+}
+.post article > blockquote > blockquote ol li,
+.post article > blockquote > blockquote ul li {
+  margin-bottom: 24px;
+}
+.post article > blockquote > blockquote pre {
+  margin: 0;
+  padding: 16px;
+}
+.post article > blockquote > blockquote pre code {
+  line-height: 16px;
+}
+.post article > blockquote > blockquote h4:before {
   content: "Figure " counter(figures) ". ";
 }
-.post article aside ol {
+.post article > blockquote > blockquote ol {
   counter-reset: sub-annotation;
 }
-.post article aside ol li {
+.post article > blockquote > blockquote ol li {
   counter-increment: sub-annotation;
   list-style-type: none;
   position: relative;
 }
-.post article aside ol li:before {
+.post article > blockquote > blockquote ol li:before {
   display: block;
   position: absolute;
   top: 0;
