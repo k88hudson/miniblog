@@ -1,36 +1,31 @@
 var express = require( "express" ),
-    lessMiddleware = require( "less-middleware" ),
     marked = require( "marked" ),
     fs = require( "fs" ),
     app = express();
 
 // Directories, etc.
-var pub = __dirname + "/public",
-    views = __dirname + "/views",
-    dataDir = __dirname + "/data",
+var PUBLIC_DIR = __dirname + "/public",
+    VIEWS_DIR = __dirname + "/views",
+    DATA_DIR = __dirname + "/data",
     PORT = 9090;
 
 // Middleware
 app.configure( function() {
   app.use( app.router );
-  app.use(lessMiddleware({
-    src: pub,
-    compress: false
-    }));
-  app.use( express.static( pub ) );
+  app.use( express.static( PUBLIC_DIR ) );
   app.use( express.errorHandler() );
 });
 
 // Views
-app.set( "views", views );
+app.set( "views", VIEWS_DIR );
 app.set("view options", {
   layout: false
 });
 app.set( "view engine", "jade" );
 
 // Data
-var postsData = require( dataDir + "/posts.json" ),
-    siteData = require( dataDir + "/site.json" );
+var postsData = require( DATA_DIR + "/posts.json" ),
+    siteData = require( DATA_DIR + "/site.json" );
 
 function sortByDate( obj, ascDesc ) {
   var item,
@@ -88,32 +83,7 @@ var sortedPosts = sortByDate( postsData );
 siteData.latestPost = postsData[ sortedPosts[ 0 ] ];
 
 
-// Home
-app.get( "/posts", function( req, res ) {
-  var allPosts = [];
-
-  sortedPosts.forEach( function( id, index ) {
-    var _postData;
-
-    if ( id ) {
-      _postData = postsData[ id ];
-      _postData.id = id;
-      _postData.content = getContent( _postData.path ).html;
-      allPosts[ index ] = _postData;
-    }
-
-  });
-
-  res.render( "home", {
-    view: "home",
-    path: "..",
-    site: siteData,
-    posts: allPosts
-  });
-});
-
-
-// List posts
+// All - Home
 app.get( "/", function( req, res ) {
   var allPosts = [];
 
@@ -129,7 +99,32 @@ app.get( "/", function( req, res ) {
 
   });
 
-  res.render( "posts", {
+  res.render( "layouts/all", {
+    view: "home",
+    path: "..",
+    site: siteData,
+    posts: allPosts
+  });
+});
+
+
+// Posts
+app.get( "/posts", function( req, res ) {
+  var allPosts = [];
+
+  sortedPosts.forEach( function( id, index ) {
+    var _postData;
+
+    if ( id ) {
+      _postData = postsData[ id ];
+      _postData.id = id;
+      _postData.content = getContent( _postData.path ).html;
+      allPosts[ index ] = _postData;
+    }
+
+  });
+
+  res.render( "layouts/list", {
     view: "posts",
     path: "..",
     site: siteData,
@@ -150,7 +145,7 @@ app.get( "/post/:id", function( req, res ) {
   postContent = getContent( postData.path );
 
   if ( postData ) {
-    res.render( "post", {
+    res.render( "layouts/single", {
       view: "post",
       path: "../..",
       site: siteData,

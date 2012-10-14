@@ -1,0 +1,19 @@
+!!! 5
+html
+  head
+    title= site.title
+    link(href= path + "/styl/style.css", rel="stylesheet")
+    script(src= "//use.typekit.net/qnf5iux.js")
+    script
+      try{Typekit.load();}catch(e){}
+    script(src= path + "/js/script.js")
+  body(class= "view-" + view + ", grid-off")
+    header#header
+      #logo k88hudson
+      nav
+        ul
+          li: a(href="/", class="home") Home
+          li: a(href="/posts", class="posts").active Posts
+          li: a(href="/post/" + site.latestPost.id, class="latest-post" ) Latest Post
+    .wrapper
+      block content

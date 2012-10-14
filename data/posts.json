@@ -28,9 +28,9 @@
     "path": "data/posts/user-testing-popcorn.md"
   },
   "testing-figures": {
-    "title": "Testing figure styles",
+    "title": "Login styles",
     "date": "2012-10-13",
-    "summary": "Last weekend the Popcorn team conducted a user testing session at the Toronto office to uncover problem areas in our interface and gage user reactions. We learned a lot.",
+    "summary": "This week I took a look at different login systems and the language ( verbal and visual ) they use to entice users to sign up.",
     "id": "testing-figures",
     "path": "data/posts/testing-figures.md"
   }
