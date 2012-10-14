@@ -133,6 +133,7 @@ button {
 .post {
   font-family: serif;
   margin-bottom: leading * 2;
+  counter-reset: figures;
   #home & {
     float: left;
     width: grid( 3 );
@@ -239,43 +240,46 @@ button {
   }
 
   article {
-    counter-reset: figures;
-    > blockquote {
-      margin: 0;
-      padding: 0;
-     // width: grid( 6 ) + leading;
-      counter-reset: figures;
-      img {
+    counter-increment: figures;
+    counter-reset: sub-figure;
+    margin: 0;
+    padding: 0;
+    clearfix();
+    h3 {
+      margin-bottom: leading;
+      &:before {
+        content: counter( figures ) ". ";
+      }
+    }
+    figure {
+      display: block;
+      counter-increment: sub-figure;
+      margin-bottom: leading;
+      display: block;
+      position: relative;
+      clearfix();
+      a {
+        float: left;
         position: relative;
-        max-width: grid( 6 );
+        width: grid( 6 );
         margin-right: leading;
+        margin-bottom: leading;
+      }
+      // For multiple images
+      > div {
+        float: left;
+        width: grid( 6 );
+      }
+      img {
+        float: left;
         border: 1px solid #888;
         box-sizing: border-box;
         box-shadow: 0 4px 5px -4px #CCC;
-        margin-bottom: leading;
+        max-width: 100%;
       }
-      > p {
-        margin: 0;
-        display: block;
-        position: relative;
-        float: left;
-      }
-      > p:after {
-        counter-increment: sub-figure;
-        content: counter( figures ) "." counter( sub-figure );
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 100%;
-        margin-right: 5px;
-        font-size: 9px;
-        font-weight: 700;
-        color: #888;
-        text-align: center;
-      }
-      > blockquote {
-        counter-increment: figures;
-        counter-reset: sub-figure;
+
+      figcaption {
+        padding-top: leading;
         text-align: left;
         border-top: 1px solid darken( #EEE, 10% );
         color: lighten( grey, 20% );
@@ -283,12 +287,28 @@ button {
         font-family: serif-alt;
         float: right;
         width: grid( 3 );
+        margin-left: gridMargin;
         margin-bottom: leading;
-        ol,
-        ul {
-          padding: 0;
-          li {
-            margin-bottom: leading;
+        position: relative;
+        height: 100%;
+        &:before {
+          font-weight: 700;
+          position: absolute;
+          right: 100%;
+          margin-right: 1em;
+          content: counter( figures ) "." counter( sub-figure ) " ";
+        }
+        >p:first-child,
+        h4:first-child {
+          margin-top: 0;
+        }
+        blockquote {
+          font-style: italic;
+          margin: 0;
+          background: #F5F5F5;
+          padding: ( leading / 1.5 );
+          p {
+            margin: 0;
           }
         }
         pre {
@@ -298,31 +318,7 @@ button {
             line-height: ( leading / 1.5 );
           }
         }
-        h4:before {
-          content: "Figure " counter( figures ) ". ";
-        }
-        ol {
-          counter-reset: sub-annotation;
-          li {
-            counter-increment: sub-annotation
-            list-style-type: none;
-            position: relative;
-            &:before {
-              display: block;
-              position: absolute;
-              top: 0;
-              right: 100%;
-              margin-right: 1em;
-              text-align: right;
-              content: counter( figures ) "." counter( sub-annotation );
-            }
-          }
-        }
-
       }
-    }
-    aside {
-     
     }
   }
 
