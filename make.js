@@ -11,7 +11,7 @@ function updateManifest() {
   data = JSON.parse( cat( outputFile ) ) || {};
 
   cd( "posts");
-  ls( "*.md" ).forEach( function( file ) {
+  ls( "*.html" ).forEach( function( file ) {
     var fileName = file.split( "." )[ 0 ],
         fileContents = cat( file ).split( "!!! CONTENT" ),
         fileMeta,
