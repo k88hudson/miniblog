@@ -61,61 +61,11 @@ function sortByDate( obj, ascDesc ) {
   return results;
 }
 
-// Add the latest Post
-var sortedPosts = sortByDate( postsData );
-
-siteData.latestPost = postsData[ sortedPosts[ 0 ] ];
-
-// Home
-app.get( "/", function( req, res ) {
-  res.render( "home", {
-    view: "home",
-    path: "",
-    site: siteData
-  });
-});
-
-// List posts
-app.get( "/posts", function( req, res ) {
-  var allPosts = [];
-
-  sortedPosts.forEach( function( id, index ) {
-    var _postData;
-
-    if ( id ) {
-      _postData = postsData[ id ];
-      _postData.id = id;
-      allPosts[ index ] = _postData;
-    }
-
-  });
-
-  res.render( "posts", {
-    view: "posts",
-    path: "..",
-    site: siteData,
-    posts: allPosts,
-    content: ""
-  });
-});
-
-// Post
-app.get( "/post/:id", function( req, res ) {
-  var id = req.route.params.id,
-      postData = postsData[ id ],
-      postTotal,
-      postContent,
-      postMarked,
-      postScripts;
-
-  if( !postData ) {
-    res.send( "Sorry, there was no post by the name." );
-  }
-
+function getContent( path ) {
   // Read the file
-  postTotal = fs.readFileSync( postData.path, "utf-8" );
-  postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ];
-  postMarked = postContent.match( /<mark>[\s\S]*?<\/mark>/gm );
+  var postTotal = fs.readFileSync( path, "utf-8" ),
+  postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ],
+  postMarked = postContent.match( /<mark>[\s\S]*?<\/mark>/gm ),
   postScripts = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 1 ];
 
   //Convert postContent to html
@@ -125,14 +75,88 @@ app.get( "/post/:id", function( req, res ) {
     }
   }
 
+  return {
+    html: postContent,
+    scripts: postScripts
+  };
+
+}
+
+// Add the latest Post
+var sortedPosts = sortByDate( postsData );
+
+siteData.latestPost = postsData[ sortedPosts[ 0 ] ];
+
+
+// Home
+app.get( "/posts", function( req, res ) {
+  var allPosts = [];
+
+  sortedPosts.forEach( function( id, index ) {
+    var _postData;
+
+    if ( id ) {
+      _postData = postsData[ id ];
+      _postData.id = id;
+      _postData.content = getContent( _postData.path ).html;
+      allPosts[ index ] = _postData;
+    }
+
+  });
+
+  res.render( "home", {
+    view: "home",
+    path: "..",
+    site: siteData,
+    posts: allPosts
+  });
+});
+
+
+// List posts
+app.get( "/", function( req, res ) {
+  var allPosts = [];
+
+  sortedPosts.forEach( function( id, index ) {
+    var _postData;
+
+    if ( id ) {
+      _postData = postsData[ id ];
+      _postData.id = id;
+      _postData.content = getContent( _postData.path ).html;
+      allPosts[ index ] = _postData;
+    }
+
+  });
+
+  res.render( "posts", {
+    view: "posts",
+    path: "..",
+    site: siteData,
+    posts: allPosts
+  });
+});
+
+// Post
+app.get( "/post/:id", function( req, res ) {
+  var id = req.route.params.id,
+      postData = postsData[ id ],
+      postContent;
+
+  if( !postData ) {
+    res.send( "Sorry, there was no post by the name." );
+  }
+
+  postContent = getContent( postData.path );
+
   if ( postData ) {
     res.render( "post", {
       view: "post",
       path: "../..",
       site: siteData,
       post: postData,
-      content: postContent,
-      scripts: postScripts
+      content: postContent.html,
+      scripts: postContent.scripts
     });
   } else {
     res.send( "Oops, no post by that name." );

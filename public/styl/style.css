@@ -297,6 +297,13 @@ button:hover {
 .post {
   font-family: ff-tisa-web-pro, Georgia;
   counter-reset: figures;
+  margin-bottom: 48px;
+}
+#home .post {
+  float: left;
+  width: 265px;
+  margin-right: 20px;
+  margin-bottom: 0;
 }
 .post p,
 .post pre,
@@ -327,6 +334,17 @@ button:hover {
 }
 .post .meta {
   padding-bottom: 24px;
+}
+.post .content {
+  *zoom: 1;
+}
+.post .content:before,
+.post .content:after {
+  content: "";
+  display: table;
+}
+.post .content:after {
+  clear: both;
 }
 .post h1 {
   font-size: 40px;

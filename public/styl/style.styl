@@ -133,6 +133,13 @@ button {
 .post {
   font-family: serif;
   counter-reset: figures;
+  margin-bottom: leading * 2;
+  #home & {
+    float: left;
+    width: grid( 3 );
+    margin-right: gridMargin;
+    margin-bottom: 0;
+  }
 
   p, pre, h2, h3, ul, .summary {
     max-width: grid( 6 );
@@ -152,6 +159,9 @@ button {
   //Meta
   .meta {
     padding-bottom: leading;
+  }
+  .content {
+    clearfix();
   }
 
   h1 {

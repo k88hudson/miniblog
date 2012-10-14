@@ -13,13 +13,6 @@
     "id": "state-of-transitions",
     "path": "data/posts/state-of-transitions.md"
   },
-  "pippins-post": {
-    "title": "Testing figure styles",
-    "date": "2012-10-13",
-    "summary": "Last weekend the Popcorn team conducted a user testing session at the Toronto office to uncover problem areas in our interface and gage user reactions. We learned a lot.",
-    "id": "pippins-post",
-    "path": "data/posts/pippins-post.md"
-  },
   "line-height": {
     "title": "Line Height and stuff",
     "date": "2012-08-11",

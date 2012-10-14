@@ -3,7 +3,4 @@
     .date= post.date
     h1: a(href="/post/" + post.id)= post.title
     .summary= post.summary
-  if content
-    .content!= content
-    .scripts!= scripts
-    
+  .content!= post.content

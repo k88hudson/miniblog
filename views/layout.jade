@@ -1,7 +1,7 @@
 !!! 5
 html
   include head
-  body(class= "view-" + view + ", grid-on")
+  body(class= "view-" + view + ", grid-off")
     include navigation
     .wrapper
       .grid-overlay
@@ -17,7 +17,7 @@ html
             .grid-6
         - }
 
-        - for (var i=0; i<120; i++) {
+        - for (var i=0; i<120; i++) {1
           .grid-line(style= "top: " + i * 24 + "px")
         - }
       block content
