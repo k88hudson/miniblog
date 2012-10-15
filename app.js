@@ -7,7 +7,7 @@ var express = require( "express" ),
 var PUBLIC_DIR = __dirname + "/public",
     VIEWS_DIR = __dirname + "/views",
     DATA_DIR = __dirname + "/data",
-    PORT = 9090;
+    PORT = 80;
 
 // Middleware
 app.configure( function() {
@@ -25,7 +25,8 @@ app.set( "view engine", "jade" );
 
 // Data
 var postsData = require( DATA_DIR + "/posts.json" ),
-    siteData = require( DATA_DIR + "/site.json" );
+    siteData = require( DATA_DIR + "/site.json" ),
+    runTime;
 
 function updateManifest() {
   var data = JSON.stringify( postsData, null, 2 );
@@ -193,6 +194,14 @@ app.get( "/post/:id", function( req, res ) {
   }
 });
 
-// Ok, go.
-app.listen( PORT );
-console.log( "Listening on port " + PORT );
+// Ok, go
+var port;
+try {
+  runTime = require( __dirname + "/runtime.json" );
+  port = runTime.port;
+} catch( e ) {
+  port = PORT;
+}
+
+app.listen( port );
+console.log( "Listening on port " + port );
