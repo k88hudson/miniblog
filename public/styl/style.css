@@ -388,32 +388,6 @@ button:hover {
   font-family: ff-tisa-web-pro, Georgia;
   margin-bottom: 48px;
   counter-reset: figures;
-/*
-  aside {
-    text-align: left;
-    border-top: 1px solid darken( #EEE, 10% );
-    color: lighten( grey, 20% );
-    font-size: 14px;
-    font-family: serif-alt;
-    float: right;
-    width: grid( 3 );
-    margin-bottom: leading;
-    ol,
-    ul {
-      padding: 0;
-      li {
-        margin-bottom: leading;
-      }
-    }
-    pre {
-      margin: 0;
-      padding: ( leading / 1.5 );
-      code {
-        line-height: ( leading / 1.5 );
-      }
-    }
-  }
-  */
 }
 #home .post {
   float: left;
