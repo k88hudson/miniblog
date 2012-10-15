@@ -17,3 +17,10 @@ html
           li: a(href="/post/" + site.latestPost.id, class="latest-post" ) Latest Post
     .wrapper
       block content
+      .footer
+        p You can comment on this post by including <code>@k88hudson http://bitly.com</code> in a tweet.
+        p If you have a little more to say, go ahead:
+        fieldset
+          textarea(placeholder="Type something here...")
+          p
+            button.btn Say something

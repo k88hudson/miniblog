@@ -5,5 +5,19 @@
     "summary": "This week I took a look at different login systems and the language ( verbal and visual ) they use to entice users to sign up.",
     "id": "logins",
     "path": "data/posts/logins.html"
+  },
+  "first-run": {
+    "title": "First-run experiences",
+    "date": "2012-10-14",
+    "summary": "What do web apps do to introduce their new users? Tutorials, help files, welcome messages?",
+    "id": "first-run",
+    "path": "data/posts/first-run.html"
+  },
+  "audio-toc-sketch": {
+    "title": "Audio Table of Contents",
+    "date": "2012-10-14",
+    "summary": "Sketch",
+    "id": "audio-toc-sketch",
+    "path": "data/posts/audio-toc-sketch.html"
   }
 }

@@ -16,6 +16,24 @@ body {
   background: #EEE;
 }
 
+.annotations {
+  background: #383838;
+  position: fixed;
+  height: 20px;
+  width: totalWidth;
+  top: 0;
+  left: grid( 2 ) + gridMargin * 2;
+  z-index: 1;
+  box-shadow: 0 3px 30px -10px rgba( 0,0,0,.3);
+  transition( height 0.3s ease-in-out );
+}
+
+.annotations-on {
+  .annotations {
+    height: 180px;
+  }
+}
+
 .wrapper {
   position: absolute;
   top: gridMargin;
@@ -110,8 +128,72 @@ p {
   margin: leading 0;
   line-height: 24px;
 }
+p > ul {
+  margin-top: 0;
+}
+
+// Code
+code, pre {
+  font-family: menlo, monospace;
+  font-size: 11px;
+  background: #EEE;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px darken( #EEE, 10% );
+}
+code {
+  line-height: 16px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  padding: 0 5px;
+  margin: 0 2px;
+  white-space: nowrap;
+}
+pre {
+  margin: 24px 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  > code {
+    display: block;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    line-height: 24px;
+    white-space: pre-wrap;
+    position: static;
+    background: none;
+  }
+}
 
 // Forms
+fieldset {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+input,
+textarea {
+  color: #555;
+  font-family: serif;
+  border: none;
+  padding: 10px;
+  margin-left: -10px;
+  margin-top: -10px;
+  width: grid( 6 );
+  box-sizing( border-box );
+  background: #FFF;
+  &:focus {
+    outline: none;
+    border: 1px solid #CCC;
+    box-shadow: 0 5px 10px -6px #CCC;
+  }
+  &::-webkit-input-placeholder {
+    color: #888;
+  }
+  &:-moz-placeholder {
+    color: #888;
+  }
+}
 button {
   border: 1px solid #CCC;
   border-radius: 2px;
@@ -130,6 +212,7 @@ button {
   }
 }
 
+//Post
 .post {
   font-family: serif;
   margin-bottom: leading * 2;
@@ -181,39 +264,7 @@ button {
     color: lighten( grey, 40% );
   }
 
-  // Code
-  code, pre {
-    font-family: menlo, monospace;
-    font-size: 11px;
-    background: #EEE;
-    border-radius: 2px;
-    box-shadow: inset 0 0 0 1px darken( #EEE, 10% );
-  }
-  code {
-    line-height: 16px;
-    display: inline-block;
-    position: relative;
-    top: -2px;
-    padding: 0 5px;
-    margin: 0 2px;
-    white-space: nowrap;
-  }
-  pre {
-    margin: 24px 0;
-    padding: 12px 24px;
-    box-sizing: border-box;
-    > code {
-      display: block;
-      box-shadow: none;
-      padding: 0;
-      margin: 0;
-      line-height: 24px;
-      white-space: pre-wrap;
-      position: static;
-      background: none;
-    }
-  }
-
+/*
   aside {
     text-align: left;
     border-top: 1px solid darken( #EEE, 10% );
@@ -238,6 +289,7 @@ button {
       }
     }
   }
+  */
 
   article {
     counter-increment: figures;
@@ -245,11 +297,12 @@ button {
     margin: 0;
     padding: 0;
     clearfix();
+    h2:before {
+      content: counter( figures ) ". ";
+    }
+    h2,
     h3 {
       margin-bottom: leading;
-      &:before {
-        content: counter( figures ) ". ";
-      }
     }
     figure {
       display: block;
@@ -264,6 +317,11 @@ button {
         width: grid( 6 );
         margin-right: leading;
         margin-bottom: leading;
+      }
+      canvas {
+        position: absolute;
+        z-index: 10000;
+        border: 1px solid #F70028;
       }
       // For multiple images
       > div {
@@ -298,8 +356,16 @@ button {
           margin-right: 1em;
           content: counter( figures ) "." counter( sub-figure ) " ";
         }
+        p {
+          margin: leading 0 0;
+        }
+        ul {
+          padding: 0;
+        }
         >p:first-child,
-        h4:first-child {
+        h4:first-child,
+        h4 + p,
+        p + ul {
           margin-top: 0;
         }
         blockquote {

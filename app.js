@@ -27,6 +27,25 @@ app.set( "view engine", "jade" );
 var postsData = require( DATA_DIR + "/posts.json" ),
     siteData = require( DATA_DIR + "/site.json" );
 
+function updateManifest() {
+  var data = JSON.stringify( postsData, null, 2 );
+  fs.writeFileSync( DATA_DIR + "/posts.json", data, "utf-8" );
+}
+
+function addPost() {
+
+}
+
+function removePost( id ) {
+  delete postsData[ id ];
+  updateManifest();
+  console.log( "removed " + id );
+}
+
+function modifyPost() {
+
+}
+
 function sortByDate( obj, ascDesc ) {
   var item,
       results = [],
@@ -56,12 +75,28 @@ function sortByDate( obj, ascDesc ) {
   return results;
 }
 
-function getContent( path ) {
-  // Read the file
-  var postTotal = fs.readFileSync( path, "utf-8" ),
-  postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ],
-  postMarked = postContent.match( /<mark>[\s\S]*?<\/mark>/gm ),
-  postScripts = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 1 ];
+function getContent( data, res ) {
+  var path,
+      postTotal;
+
+  if ( !data ) {
+    res.send( "Sorry, that doesn't appear to be a post." );
+    return;
+  }
+
+  path = data.path;
+
+  try {
+    postTotal = fs.readFileSync( path, "utf-8" );
+  } catch( e ) {
+    removePost( data.id );
+
+    res.send( "Sorry, there seemed to be a file missing at that id." );
+    return;
+  }
+  var postContent = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 0 ],
+      postMarked = postContent.match( /<mark>[\s\S]*?<\/mark>/gm ),
+      postScripts = postTotal.split( "!!! CONTENT" )[ 1 ].split( "!!! SCRIPTS" )[ 1 ];
 
   //Convert postContent to html
   if ( postMarked ) {
@@ -93,7 +128,7 @@ app.get( "/", function( req, res ) {
     if ( id ) {
       _postData = postsData[ id ];
       _postData.id = id;
-      _postData.content = getContent( _postData.path ).html;
+      _postData.content = getContent( _postData, res ).html;
       allPosts[ index ] = _postData;
     }
 
@@ -118,7 +153,7 @@ app.get( "/posts", function( req, res ) {
     if ( id ) {
       _postData = postsData[ id ];
       _postData.id = id;
-      _postData.content = getContent( _postData.path ).html;
+      _postData.content = getContent( _postData, res ).html;
       allPosts[ index ] = _postData;
     }
 
@@ -142,7 +177,7 @@ app.get( "/post/:id", function( req, res ) {
     res.send( "Sorry, there was no post by the name." );
   }
 
-  postContent = getContent( postData.path );
+  postContent = getContent( postData, res );
 
   if ( postData ) {
     res.render( "layouts/single", {
