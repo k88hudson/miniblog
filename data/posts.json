@@ -5,5 +5,12 @@
     "summary": "What makes a good first-run experience? Information, immersion, and the separation of individual critical activities",
     "id": "first-run",
     "path": "data/posts/first-run.html"
+  },
+  "sketch-site-visits-over-time": {
+    "title": "Collusion data in time/space",
+    "date": "2012-10-16",
+    "summary": "Sketch",
+    "id": "sketch-site-visits-over-time",
+    "path": "data/posts/sketch-site-visits-over-time.html"
   }
 }
